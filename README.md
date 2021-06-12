@@ -6,7 +6,7 @@ Projeto feito usando a versão 8 do Framework PHP Laravel, juntamente com o Fram
 
 Assim que feito o download, copiar o arquivo .env.example e renomear para .env e rodar ```composer install``` e logo em seguida ```yarn && yarn dev``` ou ```npm i && npm run dev```
 
-Após esse procedimento executar php artisan serve, e o sistema estará hospedado no localhost para análise.
+Após esse procedimento executar ```php artisan serve```, e o sistema estará hospedado no localhost para análise.
 
 ## Bugs Reconhecidos
 
