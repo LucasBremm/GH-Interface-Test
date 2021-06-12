@@ -1,4 +1,6 @@
 <script>
+import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -24,9 +26,12 @@ export default {
         },
         submit () {
             if (this.isValidName && this.isValidEmail && this.isValidPhone) {
-                console.log(this.nome);
-                console.log(this.telefone);
-                console.log(this.email);
+                axios.post('/contact/add', { nome: this.nome, telefone: this.telefone, email: this.email })
+                    .then(() => {
+                        this.nome = ''
+                        this.telefone = ''
+                        this.email = ''
+                    })
             }
             return
         }
