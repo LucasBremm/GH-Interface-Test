@@ -19,9 +19,8 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-import BootstrapVue from "bootstrap-vue"; //Importing
-
-Vue.use(BootstrapVue); // Telling Vue to use this in whole application
+import BootstrapVue from "bootstrap-vue";
+Vue.use(BootstrapVue);
 
 Vue.component('contact-index', require('./components/ContactScreen/Index.vue').default);
 

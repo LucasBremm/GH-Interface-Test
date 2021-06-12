@@ -1,19 +1,64 @@
+<script>
+export default {
+    data () {
+        return {
+            nome: '',
+            telefone: '',
+            email: ''
+        }
+    },
+    computed: {
+        isValidName () {
+            return this.isValidText(this.nome)
+        },
+        isValidPhone () {
+            return this.isValidText(this.telefone)
+        },
+        isValidEmail () {
+            return this.isValidText(this.email)
+        }
+    },
+    methods: {
+        isValidText (text) {
+            return text.length > 3
+        },
+        submit () {
+            if (this.isValidName && this.isValidEmail && this.isValidPhone) {
+                console.log(this.nome);
+                console.log(this.telefone);
+                console.log(this.email);
+            }
+            return
+        }
+    }
+}
+</script>
+
 <template>
     <div class="card text-center">
         <div class="card-body">
             <h1 class="card-title blue-text"><strong>Entre em Contato!</strong></h1>
-            <form>
+            <b-form @submit.prevent="submit" novalidate validated >
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome">
+                    <b-form-input v-model='nome' type="text" class="form-control" id="nome" placeholder="Nome" required :state="isValidName"></b-form-input>
+                    <div class="invalid-feedback">
+                        Por favor informe seu nome.
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="telefone" placeholder="Telefone">
+                    <b-form-input v-model='telefone' type="text" class="form-control" id="telefone" placeholder="Telefone" required :state="isValidPhone"></b-form-input>
+                    <div class="invalid-feedback">
+                        Por favor informe seu telefone.
+                    </div>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="email" placeholder="E-mail">
+                    <b-form-input v-model='email' type="text" class="form-control" id="email" placeholder="E-mail" required :state="isValidEmail"></b-form-input>
+                    <div class="invalid-feedback">
+                        Por favor informe seu e-mail.
+                    </div>
                 </div>
-            </form>
-            <a href="#" class="btn btn-primary">Enviar</a>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </b-form>
         </div>
     </div>
 </template>
